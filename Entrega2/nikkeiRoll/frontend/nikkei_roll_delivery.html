@@ -1,0 +1,309 @@
+<!-- nikkei_roll_delivery_2.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikkei Roll - Delivery</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Configuración personalizada de la paleta de colores en Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        naranja: '#F07D49',
+                        negro: '#161413',
+                        marron: '#29231F',
+                        hueso: '#EAEAEA',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #EAEAEA;
+            color: #161413;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header principal -->
+    <header class="bg-negro text-hueso py-4 px-6 shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-4">
+            
+            <!-- Logo -->
+            <a href="?seccion=inicio" class="text-2xl font-bold text-naranja flex items-center gap-2 hover:opacity-80 transition">
+                <i class="fa-solid fa-fish"></i>
+                Nikkei Roll
+            </a>
+
+            <!-- Barra de búsqueda -->
+            <div class="flex-grow max-w-md mx-4 hidden sm:block">
+                <div class="relative">
+                    <input type="text" placeholder="Buscar..." 
+                           class="w-full py-2 pl-4 pr-10 rounded-full bg-hueso text-negro focus:outline-none focus:ring-2 focus:ring-naranja placeholder-gray-500">
+                    <i class="fa-solid fa-magnifying-glass absolute right-4 top-3 text-gray-500"></i>
+                </div>
+            </div>
+
+            <!-- Botones: Carrito y Login -->
+            <div class="flex items-center gap-6">
+                <!-- Carrito de Compras -->
+                <button id="btn-carrito" class="relative group cursor-pointer text-hueso hover:text-naranja transition">
+                    <i class="fa-solid fa-cart-shopping text-xl"></i>
+                    <span id="cart-counter" class="absolute -top-2 -right-2 bg-naranja text-hueso text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    <span class="hidden md:inline-block ml-2 font-medium">Carrito</span>
+                </button>
+
+                <!-- Perfil / Login -->
+                <button id="btn-login" class="flex items-center gap-2 bg-marron hover:bg-naranja border border-marron text-hueso py-2 px-4 rounded-full transition duration-300">
+                    <i class="fa-solid fa-user"></i>
+                    <span class="hidden md:inline-block">Perfil / Login</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Barra de Navegación Secundaria -->
+    <nav class="bg-marron text-hueso shadow-inner">
+        <div class="max-w-7xl mx-auto px-6 py-3 overflow-x-auto">
+            <ul class="flex gap-8 min-w-max text-sm font-semibold">
+                <li><a href="#" data-seccion="inicio" class="nav-link hover:text-naranja transition uppercase tracking-wide">Menú</a></li>
+                <li><a href="#" data-seccion="promociones" class="nav-link hover:text-naranja transition uppercase tracking-wide">Promociones</a></li>
+                <li><a href="#" data-seccion="arma-tu-roll" class="nav-link hover:text-naranja transition uppercase tracking-wide">Arma tu Roll</a></li>
+                <li><a href="#" data-seccion="zonas-reparto" class="nav-link hover:text-naranja transition uppercase tracking-wide">Zonas de Reparto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- CONTENEDOR PRINCIPAL (Se muestra en Inicio) -->
+    <main id="main-content" class="flex-grow max-w-7xl mx-auto w-full px-6 py-8 flex flex-col gap-8">
+        
+        <!-- Espacio para Imagen Principal -->
+        <section class="w-full bg-negro rounded-2xl overflow-hidden shadow-lg h-64 md:h-96 relative group cursor-pointer">
+            <img src="https://placehold.co/1200x500/29231F/F07D49?text=Banner+Principal+-+Ofertas+del+Día" alt="Banner Principal" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-300">
+            <div class="absolute bottom-6 left-6 md:bottom-10 md:left-10 bg-negro/80 p-4 rounded-lg">
+                <h1 class="text-3xl md:text-5xl font-bold text-hueso mb-2">Sabor Nikkei</h1>
+                <p class="text-naranja text-lg font-semibold">Descubre nuestra nueva carta</p>
+            </div>
+        </section>
+
+        <!-- Organización del menú en categorías -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Categoría 1 -->
+            <div class="bg-hueso border-2 border-negro rounded-xl p-6 text-center hover:border-naranja transition cursor-pointer shadow-sm hover:shadow-md flex flex-col items-center justify-center min-h-[160px]">
+                <i class="fa-solid fa-leaf text-4xl text-marron mb-3"></i>
+                <h3 class="text-xl font-bold">Rolls Nikkei</h3>
+            </div>
+            <!-- Categoría 2 -->
+            <div class="bg-hueso border-2 border-negro rounded-xl p-6 text-center hover:border-naranja transition cursor-pointer shadow-sm hover:shadow-md flex flex-col items-center justify-center min-h-[160px]">
+                <i class="fa-solid fa-fish-fins text-4xl text-marron mb-3"></i>
+                <h3 class="text-xl font-bold">Ceviches y Tiraditos</h3>
+            </div>
+            <!-- Categoría 3 -->
+            <div class="bg-hueso border-2 border-negro rounded-xl p-6 text-center hover:border-naranja transition cursor-pointer shadow-sm hover:shadow-md flex flex-col items-center justify-center min-h-[160px]">
+                <i class="fa-solid fa-fire-flame-curved text-4xl text-marron mb-3"></i>
+                <h3 class="text-xl font-bold">Platos Calientes</h3>
+            </div>
+        </section>
+
+        <!-- Módulo: Arma tu propio Roll -->
+        <section class="w-full bg-marron text-hueso rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between shadow-lg relative overflow-hidden">
+            <div class="z-10 text-center md:text-left mb-6 md:mb-0">
+                <h2 class="text-3xl font-bold text-naranja mb-2">Módulo: Arma tu propio Roll</h2>
+                <p class="text-lg">Selección de proteína, agregados y salsa. 100% a tu gusto.</p>
+            </div>
+            <a href="#" data-seccion="arma-tu-roll" class="nav-link z-10 bg-naranja hover:bg-[#d66e3f] text-hueso font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                Crear Mi Roll <i class="fa-solid fa-arrow-right ml-2"></i>
+            </a>
+            <!-- Decoración -->
+            <i class="fa-solid fa-bowl-rice text-9xl absolute -bottom-4 -right-4 text-negro opacity-30"></i>
+        </section>
+
+        <!-- Contenedor modificado con Flexbox para centrar los productos -->
+            <div class="flex flex-wrap justify-center gap-8 w-full">
+                
+                <!-- Producto 1: Acevichado Roll -->
+                <div class="bg-hueso w-full max-w-sm rounded-xl overflow-hidden border border-gray-300 shadow-sm hover:shadow-lg transition flex flex-col">
+                    <img src="acevichadoRoll.jpg" alt="Acevichado Roll" class="w-full h-48 object-cover">
+                    <div class="p-4 flex flex-col flex-grow text-left">
+                        <h3 class="font-bold text-lg mb-1">Acevichado Roll (10 piezas)</h3>
+                        <p class="text-sm text-gray-600 mb-4">Camarón furai, palta, envuelto en atún, bañado en salsa acevichada.</p>
+                        <div class="flex justify-between items-center mt-auto">
+                            <span class="font-black text-xl text-marron">$8.500</span>
+                            <button class="btn-agregar-carrito bg-negro hover:bg-naranja text-hueso py-2 px-4 rounded-lg font-bold transition" data-id="roll1" data-name="Acevichado Roll" data-price="8500">
+                                <i class="fa-solid fa-plus mr-1"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 2: Tako Spicy Roll -->
+                <div class="bg-hueso w-full max-w-sm rounded-xl overflow-hidden border border-gray-300 shadow-sm hover:shadow-lg transition flex flex-col">
+                    <img src="TakoSpicyRoll.jpg" alt="Tako Spicy Roll" class="w-full h-48 object-cover">
+                    <div class="p-4 flex flex-col flex-grow text-left">
+                        <h3 class="font-bold text-lg mb-1">Tako Spicy Roll (10 piezas)</h3>
+                        <p class="text-sm text-gray-600 mb-4">Pulpo, queso crema, cebollín, envuelto en panko con salsa spicy.</p>
+                        <div class="flex justify-between items-center mt-auto">
+                            <span class="font-black text-xl text-marron">$7.900</span>
+                            <button class="btn-agregar-carrito bg-negro hover:bg-naranja text-hueso py-2 px-4 rounded-lg font-bold transition" data-id="roll2" data-name="Tako Spicy Roll" data-price="7900">
+                                <i class="fa-solid fa-plus mr-1"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            </div>
+        </section>
+
+        <!-- Widget de Interfaz: Seguimiento de Pedido -->
+        <aside class="w-full bg-negro text-hueso rounded-xl p-6 shadow-lg flex flex-col">
+            <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-motorcycle text-naranja"></i> Seguimiento de Pedido
+            </h2>
+            <div class="flex-grow flex flex-col justify-center gap-4">
+                <div class="p-4 bg-marron rounded-lg border border-naranja text-center">
+                    <p class="text-sm mb-1 text-gray-300">Estado de tu última orden</p>
+                    <p class="font-bold text-lg text-naranja">Esperando Confirmación</p>
+                </div>
+                <div class="relative pt-4">
+                    <div class="h-1 bg-gray-600 w-full rounded-full"></div>
+                    <!-- Progreso simulado -->
+                    <div class="h-1 bg-naranja w-1/4 rounded-full absolute top-4 left-0"></div>
+                    <div class="flex justify-between text-xs mt-2 text-gray-400">
+                        <span>Recibido</span>
+                        <span>Preparando</span>
+                        <span>En camino</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+    </main>
+
+    <!-- CONTENEDOR DINÁMICO (Para otras páginas basadas en la URL) -->
+    <main id="dynamic-content" class="flex-grow max-w-7xl mx-auto w-full px-6 py-20 flex flex-col items-center justify-center text-center hidden">
+        <i class="fa-solid fa-person-digging text-6xl text-naranja mb-6"></i>
+        <h2 id="dynamic-title" class="text-4xl font-bold text-negro mb-4">Sección en Construcción</h2>
+        <p class="text-lg text-marron max-w-2xl">
+            Estás viendo una sección generada dinámicamente mediante los parámetros de la URL (<strong>JavaScript</strong>). 
+        </p>
+        <a href="?seccion=inicio" class="mt-8 bg-marron hover:bg-naranja text-hueso py-3 px-8 rounded-full font-bold transition">
+            Volver al Inicio
+        </a>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-negro text-hueso mt-auto border-t-4 border-naranja">
+        <div class="max-w-7xl mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+            <!-- Políticas y Dirección -->
+            <div>
+                <h4 class="font-bold text-naranja text-lg mb-3">Nikkei Roll</h4>
+                <p><i class="fa-solid fa-location-dot mr-2"></i> Av. Siempre Viva 123, Santiago</p>
+                <p class="mt-2 text-gray-400 hover:text-hueso cursor-pointer">Políticas del sitio y Privacidad</p>
+                <p class="text-gray-400 hover:text-hueso cursor-pointer">Términos y Condiciones</p>
+            </div>
+            <!-- Contacto -->
+            <div>
+                <h4 class="font-bold text-naranja text-lg mb-3">Contacto</h4>
+                <p><i class="fa-solid fa-phone mr-2"></i> +56 9 1234 5678</p>
+                <p class="mt-2"><i class="fa-solid fa-envelope mr-2"></i> contacto@nikkeiroll.cl</p>
+                <div class="flex gap-4 mt-4 text-xl">
+                    <a href="#" class="hover:text-naranja"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-naranja"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+            <!-- Medios de Pago -->
+            <div>
+                <h4 class="font-bold text-naranja text-lg mb-3">Medios de Pago</h4>
+                <div class="flex flex-wrap gap-3 text-3xl">
+                    <i class="fa-brands fa-cc-visa" title="Visa"></i>
+                    <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fa-solid fa-money-bill-transfer" title="Transferencia"></i>
+                </div>
+                <p class="mt-4 text-xs text-gray-500">© 2026 Nikkei Roll. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Overlay y Sidebar del Carrito -->
+    <div id="cart-overlay" class="fixed inset-0 bg-black/50 z-[60] hidden transition-opacity backdrop-blur-sm"></div>
+    <aside id="cart-sidebar" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-hueso shadow-2xl z-[70] transform translate-x-full transition-transform duration-300 flex flex-col">
+        <!-- Header Sidebar -->
+        <div class="flex justify-between items-center p-6 border-b border-gray-300 bg-negro text-hueso">
+            <h2 class="text-xl font-bold flex items-center gap-2">
+                <i class="fa-solid fa-receipt text-naranja"></i> Tu Pedido
+            </h2>
+            <button id="btn-close-cart" class="text-hueso hover:text-naranja transition text-3xl font-bold">
+                &times;
+            </button>
+        </div>
+        
+        <!-- Contenido Sidebar -->
+        <div id="cart-items" class="flex-grow p-6 overflow-y-auto flex flex-col gap-4 text-negro">
+            <!-- Items rendered via JS -->
+        </div>
+
+        <!-- Footer Sidebar -->
+        <div class="p-6 bg-gray-200 border-t border-gray-300">
+            <div class="flex justify-between items-center text-xl font-black text-marron mb-6">
+                <span>Total:</span>
+                <span id="cart-total-price">$0</span>
+            </div>
+            <button class="w-full bg-naranja hover:bg-[#d66e3f] text-hueso font-bold py-3 rounded-xl shadow-lg transition duration-300 transform hover:scale-[1.02]">
+                Ir a Pagar
+            </button>
+        </div>
+    </aside>
+
+    <!-- Modal de Login -->
+    <div id="login-modal" class="fixed inset-0 z-[80] hidden flex items-center justify-center px-4">
+        <!-- Overlay -->
+        <div id="login-overlay" class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity cursor-pointer"></div>
+        
+        <!-- Contenido del Modal -->
+        <div class="relative bg-hueso w-full max-w-md rounded-2xl shadow-2xl p-8 z-10 flex flex-col border border-gray-300">
+            <!-- Botón Cerrar -->
+            <button id="btn-close-login" class="absolute top-4 right-4 text-gray-400 hover:text-naranja text-3xl font-bold transition">
+                &times;
+            </button>
+            
+            <div class="text-center mb-6 mt-2">
+                <h2 class="text-3xl font-bold text-negro mb-2">Iniciar Sesión</h2>
+                <div class="h-1 w-16 bg-naranja mx-auto rounded-full"></div>
+            </div>
+
+            <form class="flex flex-col gap-5">
+                <div>
+                    <label class="block text-sm font-bold text-marron mb-1">Correo</label>
+                    <input type="email" placeholder="ejemplo@correo.com" class="w-full py-3 px-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-naranja bg-white text-negro shadow-inner">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-marron mb-1">Contraseña</label>
+                    <input type="password" placeholder="********" class="w-full py-3 px-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-naranja bg-white text-negro shadow-inner">
+                </div>
+                
+                <button type="button" class="w-full mt-2 bg-negro hover:bg-marron text-hueso font-bold py-3 rounded-xl shadow-md transition duration-300 border border-transparent hover:border-naranja">
+                    Entrar
+                </button>
+            </form>
+
+            <div class="mt-8 flex flex-col gap-3 text-center text-sm font-semibold">
+                <a href="#" class="text-naranja hover:underline hover:text-marron transition">¿No tienes una cuenta creada?</a>
+                <a href="#" class="text-gray-500 hover:underline hover:text-marron transition">¿Olvidaste tu contraseña?</a>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
